@@ -1,0 +1,8 @@
+####################
+# Managed by Puppet
+####################
+
+# apt-mirror Cron Job
+
+<%= @cron_minute -%> <%= @cron_hour -%> * * *  <%= @apt_user -%>  /usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log
+

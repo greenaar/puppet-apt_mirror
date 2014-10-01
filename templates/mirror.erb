@@ -1,0 +1,22 @@
+<% @release.each do |r| -%>
+##############################
+# mirror <%= @name %>-<%= r %>
+##############################
+
+<% if not @armhf -%>
+deb <%= @protocol -%>://<%= @mirror -%>/<%= @path -%> <%= r -%> <%= @components.join(' ') %>
+<% end -%>
+<% if @amd64 -%>
+deb-amd64 <%= @protocol -%>://<%= @mirror -%>/<%= @path -%> <%= r -%> <%= @components.join(' ') %>
+<% end -%>
+<% if @i386 -%>
+deb-i386 <%= @protocol -%>://<%= @mirror -%>/<%= @path -%> <%= r -%> <%= @components.join(' ') %>
+<% end -%>
+<% if @armhf -%>
+deb-armhf <%= @protocol -%>://<%= @mirror -%>/<%= @path -%> <%= r -%> <%= @components.join(' ') %>
+<% end -%>
+<% if @source -%>
+deb-src <%= @protocol -%>://<%= @mirror -%>/<%= @path -%> <%= r -%> <%= @components.join(' ') %>
+<% end -%>
+
+<% end -%>
